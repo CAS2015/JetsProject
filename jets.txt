@@ -1,0 +1,9 @@
+Cleansweep,40,600,500,Broom
+Hippogriff,70,550,6000,Creature
+Flying Car,100,300,8000,Vehicle
+Nimbus 2000,50,800,1300,Broom
+Thestral,60,500,5000,Creature
+Nimbus 2001,60,950,900,Broom
+Flying Carriage,130,1000,30000,Vehicle
+Abraxan,150,1200,8000,Creature
+Firebolt,70,1000,2000,Broom
