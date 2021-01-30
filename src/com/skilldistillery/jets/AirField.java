@@ -32,12 +32,13 @@ public class AirField {
 		flyingObjects.add(fo);
 	}
 	
-	public void removeFlyingObjectByIndex(int i) {
-		flyingObjects.remove(i);
+	public String removeFlyingObjectByIndex(int i) {
+		return flyingObjects.remove(i).getModel();
+
 	}
 	
-	public void removeFlyingObjectByModel(FlyingObject fo) {
-		flyingObjects.remove(fo);
+	public boolean removeFlyingObjectByModel(FlyingObject fo) {
+		return flyingObjects.remove(fo);
 	}
 	
 	public FlyingObject getFastestObject() {

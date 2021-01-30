@@ -8,7 +8,7 @@ public abstract class FlyingObject {
 	protected long price;
 	
 	public void fly() {
-		System.out.printf(this.toString() + ", %.2f hours flying time before it runs out of energy.", (speed/range));
+		System.out.printf(this.toString() + ", %.2f hours flying time before it runs out of energy.\n", (range/speed));
 	}
 
 	public String getModel() {
