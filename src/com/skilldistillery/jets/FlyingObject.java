@@ -7,6 +7,9 @@ public abstract class FlyingObject {
 	protected int range;
 	protected long price;
 	protected String handler;
+	protected String[] handlerList = {"Ron Weasley", "Luna Lovegood", "Ginny Weasley", "Fred Weasley", "George Weasley", "Harry Potter", "Severus Snape",
+			"Dobby", "Hermione Granger", "Madam Maxime", "Albus Dumbledore", "Hagrid", "Draco Malfoy", "Sirius Black", "Minerva McGonagall",
+			"Remus Lupin", "Nymphadora Tonks", "Cho Chang" };
 	
 	public void fly() {
 		howFly();
@@ -29,11 +32,11 @@ public abstract class FlyingObject {
 	}
 
 	public void setHandler() {
-		String[] handlerList = {"Ron Weasley", "Luna Lovegood", "Ginny Weasley", "Fred Weasley", "George Weasley", "Harry Potter", "Severus Snape",
-							"Dobby", "Hermione Granger", "Madam Maxime", "Albus Dumbledore", "Hagrid", "Draco Malfoy", "Sirius Black", "Minerva McGonagall",
-							"Remus Lupin", "Nymphadora Tonks", "Cho Chang" };
-		
 		this.handler = handlerList[(int)(Math.random()* handlerList.length)];
+	}
+	
+	public void setHandler(String handler) {
+		this.handler = handler;
 	}
 
 	public double getSpeed() {
@@ -64,7 +67,15 @@ public abstract class FlyingObject {
 	public void setPrice(long price) {
 		this.price = Math.max(0, price);
 	}
-
+	
+	public String[] getHandlerList() {
+		String[] copyList = new String[handlerList.length];
+		for (int i = 0; i < copyList.length; i++) {
+			copyList[i] = handlerList[i];
+		}
+		return copyList;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

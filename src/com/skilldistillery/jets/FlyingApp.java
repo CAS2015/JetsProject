@@ -206,9 +206,8 @@ public class FlyingApp {
 			System.out.println();
 			System.out.println("Available things to fly:");
 			System.out.println("------------------------");
-			printMenu(af);
-			int i = getUserSelection(sc, af.getFlyingObjects().size());
-			af.getFlyingObjects().get(i-1).fly();
+			flySingleObject(af,sc);
+			System.out.println();
 			break;
 		case 11:
 			System.out.println("Thanks for visiting! Goodbye.");
@@ -371,5 +370,38 @@ public class FlyingApp {
 		for (FlyingObject fo : af.getFlyingObjects()) {
 			fo.fly();
 		}
+	}
+	
+	private void flySingleObject(AirField af, Scanner sc) {
+		printMenu(af);
+		System.out.print("What would you like to fly? ");
+		int i = getUserSelection(sc, af.getFlyingObjects().size());
+		FlyingObject fo = af.getFlyingObjects().get(i-1);
+		String[] options = {"Keep default handler","Hire new handler"};
+		
+		System.out.println();
+		System.out.println("The default handler for the " + fo.getModel() + " is " + fo.getHandler() + ". Would you like to hire a different handler? ");
+		printMenu(options);
+		System.out.print("What would you like to do? ");
+		i = getUserSelection(sc, options.length);
+		
+		if ( i == 2) {
+			String handler = hireNewHandler(sc, fo);
+			fo.setHandler(handler);
+		}
+		
+		fo.fly();
+	}
+	
+	private String hireNewHandler(Scanner sc, FlyingObject fo) {
+		System.out.println();
+		String[] handlers = fo.getHandlerList();
+		System.out.println("Handlers available to hire:");
+		System.out.println("---------------------------");
+		printMenu(handlers);
+		System.out.print("Who would you like to hire? ");
+		int i = getUserSelection(sc, handlers.length);
+		String handler = handlers[i-1];
+		return handler;
 	}
 }
