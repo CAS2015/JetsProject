@@ -37,8 +37,10 @@ public class AirField {
 
 	}
 	
-	public boolean removeFlyingObjectByModel(FlyingObject fo) {
-		return flyingObjects.remove(fo);
+	public String removeFlyingObjectByModel(FlyingObject fo) {
+		String name = fo.getModel();
+		flyingObjects.remove(fo);
+		return name;
 	}
 	
 	public FlyingObject getFastestObject() {
